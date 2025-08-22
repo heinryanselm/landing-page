@@ -1,3 +1,15 @@
+/* Prevent iOS overscroll bounce */
+html, body {
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
+
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Brand Colors - groupmeal Design System */
 :root {
   /* Brand primary palette - forest green foundation */
@@ -2250,6 +2262,10 @@ body {
 
   .nav-container {
     padding: 1rem;
+  }
+
+  .hero {
+    padding-top: 8rem;
   }
 
   .hero-subtitle {
