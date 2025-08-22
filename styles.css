@@ -416,6 +416,311 @@ body {
   perspective: 1000px;
 }
 
+/* Desktop Demo (Phone Mockups) */
+.desktop-demo {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Mobile Demo (Food Solar System) */
+.mobile-demo {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.food-solar-system {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+/* Solar Center */
+.solar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.groupmeal-sun {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(132, 175, 65, 0.4);
+  animation: sunPulse 3s ease-in-out infinite;
+}
+
+.sun-icon {
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+.sun-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(132, 175, 65, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+.center-text {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.brand-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: lowercase;
+}
+
+@keyframes sunPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(180deg);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* Food Orbits */
+.food-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba(132, 175, 65, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+  width: 120px;
+  height: 120px;
+  animation: orbit 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 150px;
+  height: 150px;
+  animation: orbit 16s linear infinite reverse;
+}
+
+.orbit-3 {
+  width: 180px;
+  height: 180px;
+  animation: orbit 20s linear infinite;
+}
+
+.orbit-4 {
+  width: 210px;
+  height: 210px;
+  animation: orbit 24s linear infinite reverse;
+}
+
+.orbit-5 {
+  width: 240px;
+  height: 240px;
+  animation: orbit 28s linear infinite;
+}
+
+.orbit-6 {
+  width: 270px;
+  height: 270px;
+  animation: orbit 32s linear infinite reverse;
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Food Planets */
+.food-planet {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  background: var(--surface);
+  border: 2px solid var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(132, 175, 65, 0.2);
+  animation: planetFloat 3s ease-in-out infinite;
+}
+
+.food-planet:hover {
+  transform: scale(1.3);
+  box-shadow: 0 8px 25px rgba(132, 175, 65, 0.4);
+  border-color: var(--accent);
+  background: rgba(132, 175, 65, 0.1);
+}
+
+@keyframes planetFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+/* Stagger the planet animations */
+.orbit-1 .food-planet { animation-delay: 0s; }
+.orbit-2 .food-planet { animation-delay: 0.5s; }
+.orbit-3 .food-planet { animation-delay: 1s; }
+.orbit-4 .food-planet { animation-delay: 1.5s; }
+.orbit-5 .food-planet { animation-delay: 2s; }
+.orbit-6 .food-planet { animation-delay: 2.5s; }
+
+/* Cosmic Tagline */
+.cosmic-tagline {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cosmic-tagline p {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.tagline-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(132, 175, 65, 0.3);
+  }
+}
+
+/* Food Info Popup */
+.food-info-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: var(--surface);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(35, 49, 32, 0.3);
+  border: 2px solid var(--primary-light);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  max-width: 280px;
+  text-align: center;
+}
+
+.food-info-popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.popup-content {
+  position: relative;
+}
+
+.popup-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: popupBounce 0.6s ease;
+}
+
+.popup-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.popup-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.popup-close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 24px;
+  height: 24px;
+  background: var(--primary-light);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.popup-close:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+}
+
+@keyframes popupBounce {
+  0% {
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .phone-mockup {
   width: 260px;
   height: 520px;
@@ -436,13 +741,13 @@ body {
 }
 
 .phone-left {
-  transform: scale(1) rotateY(25deg);
+  transform: scale(0.9) rotateY(15deg) translateX(-10px);
   z-index: 1;
   animation: phoneLeftFloat 6s ease-in-out infinite;
 }
 
 .phone-right {
-  transform: scale(1) rotateY(-25deg);
+  transform: scale(0.9) rotateY(-15deg) translateX(10px);
   z-index: 1;
   animation: phoneRightFloat 6s ease-in-out infinite;
 }
@@ -467,20 +772,20 @@ body {
 @keyframes phoneLeftFloat {
   0%,
   100% {
-    transform: scale(1) rotateY(25deg) translateY(0px) rotateZ(0deg);
+    transform: scale(0.9) rotateY(15deg) translateX(-10px) translateY(0px) rotateZ(0deg);
   }
   50% {
-    transform: scale(1) rotateY(25deg) translateY(-10px) rotateZ(-1deg);
+    transform: scale(0.9) rotateY(15deg) translateX(-10px) translateY(-10px) rotateZ(-1deg);
   }
 }
 
 @keyframes phoneRightFloat {
   0%,
   100% {
-    transform: scale(1) rotateY(-25deg) translateY(0px) rotateZ(0deg);
+    transform: scale(0.9) rotateY(-15deg) translateX(10px) translateY(0px) rotateZ(0deg);
   }
   50% {
-    transform: scale(1) rotateY(-25deg) translateY(-10px) rotateZ(1deg);
+    transform: scale(0.9) rotateY(-15deg) translateX(10px) translateY(-10px) rotateZ(1deg);
   }
 }
 
@@ -1503,6 +1808,18 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .desktop-demo {
+    display: none;
+  }
+  
+  .mobile-demo {
+    display: flex;
+  }
+  
   .nav-actions {
     gap: 1rem;
   }
@@ -1555,19 +1872,24 @@ body {
   .footer-links {
     justify-content: center;
   }
+  
+  .footer {
+    margin-bottom: 0;
+  }
 
   .moment-card {
     padding: 2rem 1.5rem;
   }
 
   .hero-demo {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
   }
 
   .phone-mockup {
-    width: 240px;
-    height: 480px;
+    width: 180px;
+    height: 360px;
   }
 
   .phone-left,
@@ -1577,8 +1899,58 @@ body {
     z-index: 1 !important;
   }
 
+  .hero {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
   .app-demo {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+  
+  .demo-title {
+    font-size: 0.875rem;
+  }
+  
+  .demo-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .restaurant-name {
+    font-size: 0.75rem;
+  }
+  
+  .vote-count {
+    font-size: 0.75rem;
+  }
+  
+  .person-name {
+    font-size: 0.75rem;
+  }
+  
+  .person-amount {
+    font-size: 0.875rem;
+  }
+  
+  .payment-status {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.5rem;
+  }
+  
+  .input-label {
+    font-size: 0.625rem;
+  }
+  
+  .input-field {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  .create-button, .order-button, .remind-button {
+    font-size: 0.75rem;
+    padding: 0.75rem;
   }
 }
 

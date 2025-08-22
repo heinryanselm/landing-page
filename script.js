@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeMagneticCursor();
   initializeFloatingFoodInteractions();
   initializeHeroMicroInteractions();
+  initializeMobileDemo();
 });
 
 // Setup event listeners
@@ -960,5 +961,173 @@ if ("serviceWorker" in navigator) {
     // navigator.serviceWorker.register('/sw.js')
     //     .then(registration => console.log('SW registered'))
     //     .catch(error => console.log('SW registration failed'));
+  });
+}
+
+// Mobile Demo Food Solar System
+function initializeMobileDemo() {
+  const foodPlanets = document.querySelectorAll('.food-planet');
+  const foodPopup = document.getElementById('foodPopup');
+  const popupClose = document.querySelector('.popup-close');
+
+  // Food data for different cuisines
+  const foodData = {
+    pizza: {
+      name: "Italian Pizza",
+      description: "Authentic wood-fired pizzas with fresh mozzarella and basil",
+      emoji: "🍕"
+    },
+    sushi: {
+      name: "Japanese Sushi",
+      description: "Fresh sashimi and rolls made by expert sushi chefs",
+      emoji: "🍣"
+    },
+    burger: {
+      name: "American Burger",
+      description: "Juicy beef patties with all the classic fixings",
+      emoji: "🍔"
+    },
+    taco: {
+      name: "Mexican Tacos",
+      description: "Authentic street tacos with fresh salsas and spices",
+      emoji: "🌮"
+    },
+    pasta: {
+      name: "Italian Pasta",
+      description: "Handmade pasta with traditional Italian sauces",
+      emoji: "🍝"
+    },
+    ramen: {
+      name: "Japanese Ramen",
+      description: "Rich, savory broths with fresh noodles and toppings",
+      emoji: "🍜"
+    }
+  };
+
+  // Add click handlers to food planets
+  foodPlanets.forEach(planet => {
+    planet.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const foodType = planet.dataset.food;
+      const foodInfo = foodData[foodType];
+
+      if (foodInfo) {
+        // Update popup content
+        document.querySelector('.popup-emoji').textContent = foodInfo.emoji;
+        document.querySelector('.popup-name').textContent = foodInfo.name;
+        document.querySelector('.popup-description').textContent = foodInfo.description;
+
+        // Show popup
+        foodPopup.classList.add('active');
+
+        // Add particle effect
+        createFoodParticles(planet, foodInfo.emoji);
+      }
+    });
+
+    // Add hover sound effect (visual feedback)
+    planet.addEventListener('mouseenter', () => {
+      planet.style.animation = 'none';
+      planet.style.transform = 'scale(1.2) rotate(10deg)';
+    });
+
+    planet.addEventListener('mouseleave', () => {
+      planet.style.animation = 'planetFloat 3s ease-in-out infinite';
+      planet.style.transform = '';
+    });
+  });
+
+  // Close popup handlers
+  if (popupClose) {
+    popupClose.addEventListener('click', closePopup);
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target === foodPopup) {
+      closePopup();
+    }
+  });
+
+  function closePopup() {
+    foodPopup.classList.remove('active');
+  }
+
+  // Create particle effect when clicking planets
+  function createFoodParticles(planet, emoji) {
+    const rect = planet.getBoundingClientRect();
+    const particles = 5;
+
+    for (let i = 0; i < particles; i++) {
+      const particle = document.createElement('div');
+      particle.textContent = emoji;
+      particle.style.cssText = `
+        position: fixed;
+        left: ${rect.left + rect.width / 2}px;
+        top: ${rect.top + rect.height / 2}px;
+        font-size: 1.2rem;
+        pointer-events: none;
+        z-index: 1000;
+        animation: planetParticle${i} 1.5s ease-out forwards;
+      `;
+
+      document.body.appendChild(particle);
+
+      // Create unique particle animation
+      const keyframes = `
+        @keyframes planetParticle${i} {
+          0% { 
+            transform: translate(0, 0) scale(1); 
+            opacity: 1; 
+          }
+          100% { 
+            transform: translate(${(Math.random() - 0.5) * 150}px, ${(Math.random() - 0.5) * 150}px) scale(0); 
+            opacity: 0; 
+          }
+        }
+      `;
+
+      const style = document.createElement('style');
+      style.textContent = keyframes;
+      document.head.appendChild(style);
+
+      setTimeout(() => {
+        document.body.removeChild(particle);
+        document.head.removeChild(style);
+      }, 1500);
+    }
+  }
+
+  // Add entrance animation for the solar system
+  const solarSystem = document.querySelector('.food-solar-system');
+  if (solarSystem) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate planets appearing
+          foodPlanets.forEach((planet, index) => {
+            setTimeout(() => {
+              planet.style.opacity = '1';
+              planet.style.transform = 'scale(1)';
+            }, index * 200);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Set initial state
+    foodPlanets.forEach(planet => {
+      planet.style.opacity = '0';
+      planet.style.transform = 'scale(0)';
+      planet.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    });
+
+    observer.observe(solarSystem);
+  }
+
+  // Add keyboard support for accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && foodPopup.classList.contains('active')) {
+      closePopup();
+    }
   });
 }
