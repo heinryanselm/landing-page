@@ -3,16 +3,8 @@
   "version": "1.0.0",
   "description": "Landing page for groupmeal - Never Eat Alone Again",
   "type": "module",
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "deploy": "vercel --prod"
-  },
   "dependencies": {
     "mongodb": "^6.3.0"
-  },
-  "devDependencies": {
-    "vercel": "^46.0.2"
   },
   "keywords": [
     "food",
