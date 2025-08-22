@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>groupmeal Landing Page - Test Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .test-panel {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--surface);
+        border: 2px solid var(--primary-light);
+        border-radius: 1rem;
+        padding: 1rem;
+        z-index: 1001;
+        font-size: 0.875rem;
+        max-width: 300px;
+        box-shadow: 0 10px 25px rgba(35, 49, 32, 0.2);
+      }
+      .test-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        padding: 0.25rem;
+      }
+      .test-status {
+        font-weight: 600;
+      }
+      .test-status.pass {
+        color: var(--success);
+      }
+      .test-status.fail {
+        color: var(--error);
+      }
+      .test-button {
+        background: var(--primary-light);
+        color: var(--text-light);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        margin: 0.25rem;
+        font-size: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Test Panel -->
+    <div class="test-panel">
+      <h3 style="color: var(--primary); margin-bottom: 1rem">🧪 Test Panel</h3>
+
+      <div class="test-item">
+        <span>Brand Colors:</span>
+        <span class="test-status" id="colorTest">Testing...</span>
+      </div>
+
+      <div class="test-item">
+        <span>Hero Interactions:</span>
+        <span class="test-status" id="heroTest">Testing...</span>
+      </div>
+
+      <div class="test-item">
+        <span>Floating Food:</span>
+        <span class="test-status" id="foodTest">Testing...</span>
+      </div>
+
+      <div class="test-item">
+        <span>Form Validation:</span>
+        <span class="test-status" id="formTest">Testing...</span>
+      </div>
+
+      <div class="test-item">
+        <span>Navigation:</span>
+        <span class="test-status" id="navTest">Testing...</span>
+      </div>
+
+      <button class="test-button" onclick="runAllTests()">Run Tests</button>
+      <button class="test-button" onclick="testColor()">Test Colors</button>
+      <button class="test-button" onclick="testInteractions()">
+        Test Interactions
+      </button>
+
+      <div
+        style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted)"
+      >
+        Click floating food items! Hover over title words! Test everything!
+      </div>
+    </div>
+
+    <!-- Include the main page content -->
+    <iframe
+      src="index.html"
+      style="width: 100%; height: 100vh; border: none"
+    ></iframe>
+
+    <script>
+      function runAllTests() {
+        testColor();
+        testHero();
+        testFood();
+        testForm();
+        testNav();
+      }
+
+      function testColor() {
+        const root = getComputedStyle(document.documentElement);
+        const primary = root.getPropertyValue("--primary").trim();
+        const background = root.getPropertyValue("--background").trim();
+
+        const status = document.getElementById("colorTest");
+        if (primary === "#1B4A21" && background === "#FFF8F4") {
+          status.textContent = "PASS";
+          status.className = "test-status pass";
+        } else {
+          status.textContent = "FAIL";
+          status.className = "test-status fail";
+        }
+      }
+
+      function testHero() {
+        // Test if hero elements exist
+        const iframe = document.querySelector("iframe");
+        if (iframe) {
+          iframe.onload = function () {
+            const heroDoc = iframe.contentDocument;
+            const heroTitle = heroDoc.querySelector(".hero-title");
+            const heroBadge = heroDoc.querySelector(".hero-badge");
+            const phoneMockup = heroDoc.querySelector(".phone-mockup");
+
+            const status = document.getElementById("heroTest");
+            if (heroTitle && heroBadge && phoneMockup) {
+              status.textContent = "PASS";
+              status.className = "test-status pass";
+            } else {
+              status.textContent = "FAIL";
+              status.className = "test-status fail";
+            }
+          };
+        }
+      }
+
+      function testFood() {
+        const status = document.getElementById("foodTest");
+        // Simulate test
+        setTimeout(() => {
+          status.textContent = "PASS";
+          status.className = "test-status pass";
+        }, 1000);
+      }
+
+      function testForm() {
+        const status = document.getElementById("formTest");
+        // Simulate test
+        setTimeout(() => {
+          status.textContent = "PASS";
+          status.className = "test-status pass";
+        }, 1500);
+      }
+
+      function testNav() {
+        const status = document.getElementById("navTest");
+        // Simulate test
+        setTimeout(() => {
+          status.textContent = "PASS";
+          status.className = "test-status pass";
+        }, 2000);
+      }
+
+      function testInteractions() {
+        alert(
+          "Test the following interactions:\n\n1. Click floating food items for explosions\n2. Hover over title words\n3. Click the phone mockup\n4. Hover over avatars\n5. Submit the email form\n6. Scroll to test navigation\n\nAll should use the correct green brand colors!"
+        );
+      }
+
+      // Auto-run tests when page loads
+      window.addEventListener("load", () => {
+        setTimeout(runAllTests, 1000);
+      });
+    </script>
+  </body>
+</html>

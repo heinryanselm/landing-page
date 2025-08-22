@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>groupmeal - Never Eat Alone Again</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#ff6b6b" />
+    <meta
+      name="description"
+      content="Never eat alone again. groupmeal revolutionizes group food ordering with shared dining sessions, restaurant voting, and seamless split payments."
+    />
+    <meta
+      name="keywords"
+      content="group food ordering, restaurant voting, split payments, shared dining, food delivery, group meals"
+    />
+    <meta property="og:title" content="groupmeal - Never Eat Alone Again" />
+    <meta
+      property="og:description"
+      content="The future of group food ordering. Create shared dining experiences, vote on restaurants with friends, and enjoy seamless split payments."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="groupmeal - Never Eat Alone Again" />
+    <meta
+      name="twitter:description"
+      content="The future of group food ordering. Create shared dining experiences, vote on restaurants with friends, and enjoy seamless split payments."
+    />
+    <meta name="twitter:image" content="og-image.png" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🍽️</span>
+          <span class="logo-text">groupmeal</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-link">How it Works</button>
+          <button class="nav-link">Features</button>
+          <button class="btn-primary" id="joinWaitlistBtn">
+            Join Waitlist
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background">
+        <div
+          class="floating-food-item"
+          style="--delay: 0s; --x: 10%; --y: 20%"
+          title="Click me! 🍕"
+        >
+          🍕
+        </div>
+        <div
+          class="floating-food-item"
+          style="--delay: 1s; --x: 85%; --y: 15%"
+          title="Click me! 🍜"
+        >
+          🍜
+        </div>
+        <div
+          class="floating-food-item"
+          style="--delay: 2s; --x: 15%; --y: 75%"
+          title="Click me! 🌮"
+        >
+          🌮
+        </div>
+        <div
+          class="floating-food-item"
+          style="--delay: 3s; --x: 80%; --y: 80%"
+          title="Click me! 🍔"
+        >
+          🍔
+        </div>
+        <div
+          class="floating-food-item"
+          style="--delay: 1.5s; --x: 50%; --y: 10%"
+          title="Click me! 🍣"
+        >
+          🍣
+        </div>
+        <div
+          class="floating-food-item"
+          style="--delay: 2.5s; --x: 70%; --y: 50%"
+          title="Click me! 🥗"
+        >
+          🥗
+        </div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-text">✨ Coming Soon</span>
+          </div>
+
+          <h1 class="hero-title">
+            Never Eat
+            <span class="title-highlight">Alone</span>
+            Again
+          </h1>
+
+          <p class="hero-subtitle">
+            The future of group dining is here. Create shared ordering sessions,
+            vote on restaurants with friends, and enjoy seamless split payments.
+          </p>
+
+          <div class="hero-demo">
+            <!-- Left Phone - Group Creation -->
+            <div class="phone-mockup phone-left">
+              <div class="phone-screen">
+                <div class="app-demo">
+                  <div class="demo-header">
+                    <div class="demo-avatar"></div>
+                    <div class="demo-text">
+                      <div class="demo-title">Create Session</div>
+                      <div class="demo-subtitle">Start your group</div>
+                    </div>
+                  </div>
+                  <div class="demo-content">
+                    <div class="create-session">
+                      <div class="session-input">
+                        <div class="input-label">Session Name</div>
+                        <div class="input-field">Friday Team Lunch</div>
+                      </div>
+                      <div class="invite-friends">
+                        <div class="friend-avatar">👤</div>
+                        <div class="friend-avatar">👩</div>
+                        <div class="friend-avatar">👨</div>
+                        <div class="add-friend">+</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="demo-action">
+                    <div class="create-button">Create Session</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Phone - Voting -->
+            <div class="phone-mockup phone-center">
+              <div class="phone-screen">
+                <div class="app-demo">
+                  <div class="demo-header">
+                    <div class="demo-avatar"></div>
+                    <div class="demo-text">
+                      <div class="demo-title">Friday Team Lunch</div>
+                      <div class="demo-subtitle">4 people joined</div>
+                    </div>
+                  </div>
+                  <div class="demo-restaurants">
+                    <div class="restaurant-card active">
+                      <div class="restaurant-emoji">🍕</div>
+                      <div class="restaurant-name">Mario's Pizza</div>
+                      <div class="vote-count">3 votes</div>
+                    </div>
+                    <div class="restaurant-card">
+                      <div class="restaurant-emoji">🌮</div>
+                      <div class="restaurant-name">Taco Libre</div>
+                      <div class="vote-count">1 vote</div>
+                    </div>
+                  </div>
+                  <div class="demo-action">
+                    <div class="order-button">Order Together</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Phone - Payment Split -->
+            <div class="phone-mockup phone-right">
+              <div class="phone-screen">
+                <div class="app-demo">
+                  <div class="demo-header">
+                    <div class="demo-avatar"></div>
+                    <div class="demo-text">
+                      <div class="demo-title">Split Payment</div>
+                      <div class="demo-subtitle">Total: £89.40</div>
+                    </div>
+                  </div>
+                  <div class="demo-content">
+                    <div class="payment-split">
+                      <div class="split-item">
+                        <div class="person-name">You </div>
+                        <div class="person-amount">£23.45</div>
+                        <div class="payment-status paid">Paid</div>
+                      </div>
+                      <div class="split-item">
+                        <div class="person-name">Alex </div>
+                        <div class="person-amount">£19.80</div>
+                        <div class="payment-status pending">Pending</div>
+                      </div>
+                      <div class="split-item">
+                        <div class="person-name">Sarah </div>
+                        <div class="person-amount">£26.15</div>
+                        <div class="payment-status paid">Paid</div>
+                      </div>
+                      <div class="split-item">
+                        <div class="person-name">Mike </div>
+                        <div class="person-amount">£20.00</div>
+                        <div class="payment-status pending">Pending</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="demo-action">
+                    <div class="remind-button">Send Reminder</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-cta" id="primaryCTA">
+              <span>Join the Revolution</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </button>
+            <button class="btn-secondary">
+              <span>Watch Demo</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="social-proof">
+            <div class="proof-avatars">
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar-count">+127</div>
+            </div>
+            <p class="proof-text">
+              Join <strong>127 food lovers</strong> already on the waitlist
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="features-preview">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card" data-feature="group">
+            <div class="feature-icon">👥</div>
+            <h3>Group Sessions</h3>
+            <p>Create shared dining experiences that bring people together</p>
+          </div>
+
+          <div class="feature-card" data-feature="vote">
+            <div class="feature-icon">🗳️</div>
+            <h3>Restaurant Voting</h3>
+            <p>Let everyone have a say in where you dine</p>
+          </div>
+
+          <div class="feature-card" data-feature="payments">
+            <div class="feature-icon">💳</div>
+            <h3>Smart Split Payments</h3>
+            <p>No more awkward bill splitting conversations</p>
+          </div>
+
+          <div class="feature-card" data-feature="recurring">
+            <div class="feature-icon">🔄</div>
+            <h3>Recurring Sessions</h3>
+            <p>Automate your weekly team lunches and monthly dinners</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Magic Moments -->
+    <section class="magic-moments">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">The Magic Happens When Friends Connect</h2>
+          <p class="section-subtitle">
+            Experience the joy of effortless group dining
+          </p>
+        </div>
+
+        <div class="moments-grid">
+          <div class="moment-card">
+            <div class="moment-visual">
+              <div class="moment-scene">
+                <div class="table-visual">
+                  <div class="table-surface"></div>
+                  <div class="seat-indicator active" style="--position: 0">
+                    You
+                  </div>
+                  <div class="seat-indicator joining" style="--position: 1">
+                    Alex
+                  </div>
+                  <div class="seat-indicator" style="--position: 2">Sarah</div>
+                  <div class="seat-indicator" style="--position: 3">Mike</div>
+                </div>
+              </div>
+            </div>
+            <h3>Create Your Table</h3>
+            <p>
+              Start a session and watch friends join your virtual dining table
+              in real-time
+            </p>
+          </div>
+
+          <div class="moment-card">
+            <div class="moment-visual">
+              <div class="voting-animation">
+                <div class="restaurant-option" style="--votes: 3">
+                  <span class="restaurant-emoji">🍕</span>
+                  <div class="vote-bar"></div>
+                </div>
+                <div class="restaurant-option" style="--votes: 1">
+                  <span class="restaurant-emoji">🌮</span>
+                  <div class="vote-bar"></div>
+                </div>
+              </div>
+            </div>
+            <h3>Vote Together</h3>
+            <p>
+              Democratic restaurant selection with smart tie-breaking keeps
+              everyone happy
+            </p>
+          </div>
+
+          <div class="moment-card">
+            <div class="moment-visual">
+              <div class="payment-flow">
+                <div class="payment-card">
+                  <div class="card-icon">💳</div>
+                  <div class="payment-amount">$23.45</div>
+                  <div class="payment-status">Paid</div>
+                </div>
+              </div>
+            </div>
+            <h3>Pay Seamlessly</h3>
+            <p>
+              Individual payments, group tabs, or single payer - whatever works
+              for your crew
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist-section">
+      <div class="container">
+        <div class="waitlist-content">
+          <h2 class="waitlist-title">Ready to Transform How You Dine?</h2>
+          <p class="waitlist-subtitle">
+            Be among the first to experience the future of group ordering
+          </p>
+
+          <form class="waitlist-form" id="waitlistForm">
+            <div class="form-group">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="email-input"
+                required
+              />
+              <button type="submit" class="submit-btn">
+                <span>Join Waitlist</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="early-access-perks">
+            <div class="perk">
+              <span class="perk-icon">⚡</span>
+              <span>Early access</span>
+            </div>
+            <div class="perk">
+              <span class="perk-icon">🎁</span>
+              <span>Exclusive features</span>
+            </div>
+            <div class="perk">
+              <span class="perk-icon">💬</span>
+              <span>Shape the product</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="logo-icon">🍽️</span>
+              <span class="logo-text">groupmeal</span>
+            </div>
+            <p class="footer-tagline">Never eat alone again</p>
+          </div>
+
+          <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 groupmeal. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="success-animation">
+            <div class="success-checkmark">✓</div>
+          </div>
+          <h3>You're In!</h3>
+          <p>
+            Welcome to the groupmeal family. We'll notify you as soon as we
+            launch!
+          </p>
+          <button class="btn-primary" onclick="closeModal()">Awesome!</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
