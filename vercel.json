@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/waitlist.js": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "MONGODB_URI": "@mongodb_uri"
+  }
+}

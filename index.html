@@ -12,6 +12,9 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#ff6b6b" />
     <meta
@@ -42,7 +45,7 @@
     <nav class="nav">
       <div class="nav-container">
         <div class="nav-logo">
-          <span class="logo-icon">🍽️</span>
+          <img src="logo.PNG" alt="groupmeal logo" class="logo-image" />
           <span class="logo-text">groupmeal</span>
         </div>
         <div class="nav-actions">
@@ -58,6 +61,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-background">
+        <!-- Floating Food Items -->
         <div
           class="floating-food-item"
           style="--delay: 0s; --x: 10%; --y: 20%"
@@ -100,6 +104,24 @@
         >
           🥗
         </div>
+
+        <!-- Small Flying Elements -->
+        <div class="flying-element sparkle" style="--delay: 0.5s; --x: 20%; --y: 30%">✨</div>
+        <div class="flying-element sparkle" style="--delay: 2s; --x: 75%; --y: 25%">✨</div>
+        <div class="flying-element sparkle" style="--delay: 4s; --x: 90%; --y: 60%">✨</div>
+        <div class="flying-element sparkle" style="--delay: 6s; --x: 5%; --y: 85%">✨</div>
+        
+        <div class="flying-element utensil" style="--delay: 1s; --x: 30%; --y: 40%">🍴</div>
+        <div class="flying-element utensil" style="--delay: 3s; --x: 65%; --y: 35%">🥄</div>
+        <div class="flying-element utensil" style="--delay: 5s; --x: 25%; --y: 65%">🔪</div>
+        
+        <div class="flying-element heart" style="--delay: 1.5s; --x: 40%; --y: 20%">💚</div>
+        <div class="flying-element heart" style="--delay: 3.5s; --x: 60%; --y: 70%">💛</div>
+        <div class="flying-element heart" style="--delay: 5.5s; --x: 15%; --y: 45%">🧡</div>
+
+        <div class="flying-element star" style="--delay: 2.5s; --x: 55%; --y: 85%">⭐</div>
+        <div class="flying-element star" style="--delay: 4.5s; --x: 80%; --y: 40%">🌟</div>
+        <div class="flying-element star" style="--delay: 0.8s; --x: 35%; --y: 55%">✨</div>
       </div>
 
       <div class="hero-container">
@@ -232,7 +254,7 @@
               <div class="food-solar-system">
                 <div class="solar-center">
                   <div class="groupmeal-sun">
-                    <span class="sun-icon">🍽️</span>
+                    <img src="logo.PNG" alt="groupmeal" class="sun-logo" />
                     <div class="sun-glow"></div>
                   </div>
                   <div class="center-text">
@@ -312,16 +334,50 @@
             </button>
           </div>
 
+          <div class="app-store-badges">
+            <div class="badges-header">
+              <h3>Coming Soon to</h3>
+              <div class="coming-soon-glow"></div>
+            </div>
+            <div class="badges-container">
+              <div class="app-store-badge ios">
+                <div class="badge-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                </div>
+                <div class="badge-text">
+                  <div class="coming-soon">Coming Soon</div>
+                  <div class="store-name">App Store</div>
+                </div>
+                <div class="badge-glow"></div>
+              </div>
+
+              <div class="app-store-badge android">
+                <div class="badge-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                  </svg>
+                </div>
+                <div class="badge-text">
+                  <div class="coming-soon">Coming Soon</div>
+                  <div class="store-name">Google Play</div>
+                </div>
+                <div class="badge-glow"></div>
+              </div>
+            </div>
+          </div>
+
           <div class="social-proof">
             <div class="proof-avatars">
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar-count">+127</div>
+              <div class="avatar">A</div>
+              <div class="avatar">M</div>
+              <div class="avatar">S</div>
+              <div class="avatar">J</div>
+              <div class="avatar-count">+</div>
             </div>
             <p class="proof-text">
-              Join <strong>127 food lovers</strong> already on the waitlist
+              Join <strong>food lovers</strong> already on the waitlist
             </p>
           </div>
         </div>
@@ -490,7 +546,7 @@
         <div class="footer-content">
           <div class="footer-brand">
             <div class="footer-logo">
-              <span class="logo-icon">🍽️</span>
+              <img src="logo.PNG" alt="groupmeal logo" class="footer-logo-image" />
               <span class="logo-text">groupmeal</span>
             </div>
             <p class="footer-tagline">Never eat alone again</p>

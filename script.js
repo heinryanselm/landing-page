@@ -74,12 +74,14 @@ async function handleWaitlistSubmission(e) {
   submitBtn.disabled = true;
 
   try {
-    // Simulate API call
-    await simulateAPICall(email);
+    // Submit to real API
+    const result = await submitToWaitlist(email);
 
-    // Update waitlist count
-    waitlistCount++;
-    updateWaitlistCount();
+    // Update waitlist count with real data
+    if (result.count) {
+      waitlistCount = result.count;
+      updateWaitlistCount();
+    }
 
     // Show success modal
     showSuccessModal();
@@ -90,7 +92,7 @@ async function handleWaitlistSubmission(e) {
     // Track conversion (in real app, send to analytics)
     trackWaitlistSignup(email);
   } catch (error) {
-    showNotification("Something went wrong. Please try again.", "error");
+    showNotification(error.message || "Something went wrong. Please try again.", "error");
   } finally {
     // Re-enable form
     submitBtn.innerHTML = originalText;
@@ -98,18 +100,22 @@ async function handleWaitlistSubmission(e) {
   }
 }
 
-// Simulate API call for waitlist signup
-function simulateAPICall(email) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Simulate 95% success rate
-      if (Math.random() > 0.05) {
-        resolve({ success: true, email });
-      } else {
-        reject(new Error("API Error"));
-      }
-    }, 1500);
+// Real API call for waitlist signup
+async function submitToWaitlist(email) {
+  const response = await fetch('/api/waitlist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
   });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Failed to join waitlist');
+  }
+
+  return response.json();
 }
 
 // Email validation
@@ -141,12 +147,12 @@ function closeModal() {
 function updateWaitlistCount() {
   const countElements = document.querySelectorAll(".proof-text strong");
   countElements.forEach((element) => {
-    element.textContent = waitlistCount + " food lovers";
+    element.textContent = "food lovers";
   });
 
   const avatarCount = document.querySelector(".avatar-count");
   if (avatarCount) {
-    avatarCount.textContent = `+${waitlistCount}`;
+    avatarCount.textContent = `+`;
   }
 }
 

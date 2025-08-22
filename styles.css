@@ -136,6 +136,12 @@ body {
   color: var(--text);
 }
 
+.logo-image {
+  height: 3.5rem;
+  width: auto;
+  object-fit: contain;
+}
+
 .logo-icon {
   font-size: 1.5rem;
 }
@@ -233,7 +239,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 5rem;
+  padding-top: 7rem;
   background: linear-gradient(
     135deg,
     var(--background) 0%,
@@ -300,6 +306,108 @@ body {
   }
   75% {
     transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+/* Small Flying Elements */
+.flying-element {
+  position: absolute;
+  font-size: 1rem;
+  opacity: 0.15;
+  animation: flyAround 8s ease-in-out infinite;
+  animation-delay: var(--delay);
+  left: var(--x);
+  top: var(--y);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.flying-element.sparkle {
+  animation: sparkleFloat 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0.3;
+}
+
+.flying-element.utensil {
+  animation: utensileRotate 10s linear infinite;
+  animation-delay: var(--delay);
+  opacity: 0.2;
+}
+
+.flying-element.heart {
+  animation: heartPulse 4s ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0.25;
+}
+
+.flying-element.star {
+  animation: starTwinkle 3s ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0.2;
+}
+
+@keyframes flyAround {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-5px) rotate(-3deg) scale(0.9);
+  }
+  75% {
+    transform: translateY(-25px) translateX(15px) rotate(8deg) scale(1.05);
+  }
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+@keyframes utensileRotate {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-10px);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% {
+    transform: scale(1.2) rotate(45deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: scale(0.8) rotate(-45deg);
+    opacity: 0.3;
   }
 }
 
@@ -453,8 +561,8 @@ body {
 
 .groupmeal-sun {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: linear-gradient(135deg, var(--primary-light), var(--accent));
   border-radius: 50%;
   display: flex;
@@ -464,6 +572,13 @@ body {
   animation: sunPulse 3s ease-in-out infinite;
 }
 
+.sun-logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  z-index: 2;
+}
+
 .sun-icon {
   font-size: 2.5rem;
   z-index: 2;
@@ -471,8 +586,8 @@ body {
 
 .sun-glow {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: radial-gradient(circle, rgba(132, 175, 65, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   animation: glowPulse 2s ease-in-out infinite alternate;
@@ -1062,7 +1177,7 @@ body {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeInUp 1s ease-out 1.5s forwards;
@@ -1114,6 +1229,168 @@ body {
   width: 80%;
 }
 
+/* App Store Badges */
+.app-store-badges {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2s forwards;
+}
+
+.badges-header {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.badges-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.coming-soon-glow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+  animation: headerGlow 2s ease-in-out infinite;
+}
+
+@keyframes headerGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.2);
+  }
+}
+
+.badges-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app-store-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 8px 25px rgba(35, 49, 32, 0.1);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  min-width: 180px;
+  animation: badgeFloat 6s ease-in-out infinite;
+}
+
+.app-store-badge.ios {
+  animation-delay: 0s;
+}
+
+.app-store-badge.android {
+  animation-delay: 0.5s;
+}
+
+.app-store-badge:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(35, 49, 32, 0.2);
+  border-color: var(--primary-light);
+}
+
+.app-store-badge.ios:hover {
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+  border-color: #007AFF;
+}
+
+.app-store-badge.android:hover {
+  background: linear-gradient(135deg, rgba(52, 168, 83, 0.05), rgba(251, 188, 52, 0.05));
+  border-color: #34A853;
+}
+
+.badge-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.app-store-badge.ios .badge-icon {
+  background: linear-gradient(135deg, #007AFF, #5856D6);
+}
+
+.app-store-badge.android .badge-icon {
+  background: linear-gradient(135deg, #34A853, #FBBC04);
+}
+
+.badge-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.badge-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.coming-soon {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.store-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.badge-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.app-store-badge:hover .badge-glow {
+  left: 100%;
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.5deg);
+  }
+}
+
 /* Social Proof */
 .social-proof {
   display: flex;
@@ -1140,6 +1417,12 @@ body {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   animation: avatarBounce 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
 }
 
 .avatar:hover {
@@ -1694,6 +1977,12 @@ body {
   gap: 0.5rem;
   font-weight: 700;
   font-size: 1.25rem;
+}
+
+.footer-logo-image {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-tagline {
