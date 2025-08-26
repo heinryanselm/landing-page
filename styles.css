@@ -1894,14 +1894,20 @@ body {
 }
 
 /* Ensure last row is centered when there are fewer items */
-.features-grid::after {
-  content: '';
-  grid-column: span 2;
+@media (min-width: 768px) {
+  .features-grid::after {
+    content: '';
+    grid-column: span 2;
+  }
 }
 
 @media (min-width: 1024px) {
   .features-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .features-grid::after {
+    display: none;
   }
 }
 
@@ -2478,6 +2484,8 @@ body {
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
   }
 
   .moments-grid {
