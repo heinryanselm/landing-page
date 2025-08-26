@@ -19,7 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeFloatingFoodInteractions();
   initializeHeroMicroInteractions();
   initializeMobileDemo();
+  updateCopyrightYear();
 });
+
+// Update copyright year to current year
+function updateCopyrightYear() {
+  const currentYear = new Date().getFullYear();
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = currentYear;
+  }
+}
 
 // Setup event listeners
 function setupEventListeners() {
