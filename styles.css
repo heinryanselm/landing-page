@@ -1001,6 +1001,326 @@ body {
   background: rgba(132, 175, 65, 0.05);
 }
 
+/* Multi-restaurant styling */
+.restaurant-card.multi-primary {
+  border-color: var(--primary);
+  background: rgba(27, 74, 33, 0.08);
+}
+
+.restaurant-card.multi-secondary {
+  border-color: var(--secondary);
+  background: rgba(167, 201, 87, 0.05);
+  opacity: 0.9;
+}
+
+.restaurant-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.restaurant-badge.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.restaurant-badge.secondary {
+  background: var(--secondary-light);
+  color: var(--primary);
+}
+
+/* Coordinated timing display */
+.coordinated-timing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.timing-icon {
+  font-size: 1.2rem;
+}
+
+.timing-text {
+  flex: 1;
+}
+
+/* Restaurant split sections */
+.restaurant-splits {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.restaurant-split-section {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 248, 244, 0.5);
+}
+
+.restaurant-split-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.restaurant-split-header .restaurant-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.restaurant-split-header .restaurant-emoji {
+  font-size: 1rem;
+}
+
+/* Multi-Restaurant Benefits Section */
+.multi-restaurant-benefits {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--surface), rgba(183, 217, 160, 0.1));
+  position: relative;
+  overflow: hidden;
+}
+
+.multi-restaurant-benefits::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(132, 175, 65, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(167, 201, 87, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.benefit-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(35, 49, 32, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(132, 175, 65, 0.1);
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(35, 49, 32, 0.15);
+  border-color: var(--primary-light);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Coordination Showcase */
+.coordination-showcase {
+  margin-top: 6rem;
+  background: white;
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(35, 49, 32, 0.1);
+}
+
+.showcase-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.showcase-text h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.coordination-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.step-number {
+  background: var(--primary-light);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-top: 0.25rem;
+}
+
+/* Timing Visualization */
+.timing-visualization {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 2px solid var(--border);
+}
+
+.restaurant-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timeline-restaurant {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.timeline-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.prep-time {
+  height: 100%;
+  border-radius: 4px;
+  animation: fillTimeline 2s ease-out;
+}
+
+.timeline-item.pizza .prep-time {
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+}
+
+.timeline-item.tacos .prep-time {
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+}
+
+.timeline-item.ramen .prep-time {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.timeline-time {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.delivery-sync {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.sync-icon {
+  font-size: 1.5rem;
+  animation: syncPulse 2s ease-in-out infinite;
+}
+
+@keyframes fillTimeline {
+  0% { width: 0; }
+  100% { width: var(--fill-width, 100%); }
+}
+
+@keyframes syncPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  
+  .coordination-showcase {
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .showcase-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .timeline-item {
+    grid-template-columns: 100px 1fr 50px;
+    gap: 0.5rem;
+  }
+  
+  .timeline-restaurant {
+    font-size: 0.75rem;
+  }
+}
+
 /* New Phone Content Styles */
 
 /* Create Session (Left Phone) */
@@ -1567,6 +1887,22 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Ensure last row is centered when there are fewer items */
+.features-grid::after {
+  content: '';
+  grid-column: span 2;
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .feature-card {

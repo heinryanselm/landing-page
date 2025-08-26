@@ -138,7 +138,7 @@
 
           <p class="hero-subtitle">
             The future of group dining is here. Create shared ordering sessions,
-            vote on restaurants with friends, and enjoy seamless split payments.
+            order from multiple restaurants with coordinated delivery, and enjoy seamless split payments.
           </p>
 
           <div class="hero-demo">
@@ -188,16 +188,25 @@
                       </div>
                     </div>
                     <div class="demo-restaurants">
-                      <div class="restaurant-card active">
+                      <div class="restaurant-card multi-primary">
                         <div class="restaurant-emoji">🍕</div>
                         <div class="restaurant-name">Mario's Pizza</div>
-                        <div class="vote-count">3 votes</div>
+                        <div class="restaurant-badge primary">Primary</div>
                       </div>
-                      <div class="restaurant-card">
+                      <div class="restaurant-card multi-secondary">
                         <div class="restaurant-emoji">🌮</div>
                         <div class="restaurant-name">Taco Libre</div>
-                        <div class="vote-count">1 vote</div>
+                        <div class="restaurant-badge secondary">+15m</div>
                       </div>
+                      <div class="restaurant-card multi-secondary">
+                        <div class="restaurant-emoji">🍜</div>
+                        <div class="restaurant-name">Ramen Hub</div>
+                        <div class="restaurant-badge secondary">+10m</div>
+                      </div>
+                    </div>
+                    <div class="coordinated-timing">
+                      <div class="timing-icon">⏱️</div>
+                      <div class="timing-text">Coordinated delivery: 6:45 PM</div>
                     </div>
                     <div class="demo-action">
                       <div class="order-button">Order Together</div>
@@ -213,31 +222,51 @@
                     <div class="demo-header">
                       <div class="demo-avatar"></div>
                       <div class="demo-text">
-                        <div class="demo-title">Split Payment</div>
-                        <div class="demo-subtitle">Total: £89.40</div>
+                        <div class="demo-title">Multi-Restaurant Split</div>
+                        <div class="demo-subtitle">Total: £124.85</div>
                       </div>
                     </div>
                     <div class="demo-content">
-                      <div class="payment-split">
-                        <div class="split-item">
-                          <div class="person-name">You </div>
-                          <div class="person-amount">£23.45</div>
-                          <div class="payment-status paid">Paid</div>
+                      <div class="restaurant-splits">
+                        <div class="restaurant-split-section">
+                          <div class="restaurant-split-header">
+                            <span class="restaurant-emoji">🍕</span>
+                            <span class="restaurant-name">Mario's Pizza</span>
+                          </div>
+                          <div class="split-item">
+                            <div class="person-name">You</div>
+                            <div class="person-amount">£23.45</div>
+                            <div class="payment-status paid">Paid</div>
+                          </div>
+                          <div class="split-item">
+                            <div class="person-name">Sarah</div>
+                            <div class="person-amount">£26.15</div>
+                            <div class="payment-status paid">Paid</div>
+                          </div>
                         </div>
-                        <div class="split-item">
-                          <div class="person-name">Alex </div>
-                          <div class="person-amount">£19.80</div>
-                          <div class="payment-status pending">Pending</div>
+                        
+                        <div class="restaurant-split-section">
+                          <div class="restaurant-split-header">
+                            <span class="restaurant-emoji">🌮</span>
+                            <span class="restaurant-name">Taco Libre</span>
+                          </div>
+                          <div class="split-item">
+                            <div class="person-name">Alex</div>
+                            <div class="person-amount">£35.25</div>
+                            <div class="payment-status pending">Pending</div>
+                          </div>
                         </div>
-                        <div class="split-item">
-                          <div class="person-name">Sarah </div>
-                          <div class="person-amount">£26.15</div>
-                          <div class="payment-status paid">Paid</div>
-                        </div>
-                        <div class="split-item">
-                          <div class="person-name">Mike </div>
-                          <div class="person-amount">£20.00</div>
-                          <div class="payment-status pending">Pending</div>
+                        
+                        <div class="restaurant-split-section">
+                          <div class="restaurant-split-header">
+                            <span class="restaurant-emoji">🍜</span>
+                            <span class="restaurant-name">Ramen Hub</span>
+                          </div>
+                          <div class="split-item">
+                            <div class="person-name">Mike</div>
+                            <div class="person-amount">£40.00</div>
+                            <div class="payment-status pending">Pending</div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -388,28 +417,135 @@
     <section class="features-preview">
       <div class="container">
         <div class="features-grid">
+          <div class="feature-card" data-feature="multi-restaurant">
+            <div class="feature-icon">🏢</div>
+            <h3>Multi-Restaurant Ordering</h3>
+            <p>Order from multiple nearby restaurants with perfectly coordinated delivery timing</p>
+          </div>
+
           <div class="feature-card" data-feature="group">
             <div class="feature-icon">👥</div>
             <h3>Group Sessions</h3>
             <p>Create shared dining experiences that bring people together</p>
           </div>
 
-          <div class="feature-card" data-feature="vote">
-            <div class="feature-icon">🗳️</div>
-            <h3>Restaurant Voting</h3>
-            <p>Let everyone have a say in where you dine</p>
+          <div class="feature-card" data-feature="timing">
+            <div class="feature-icon">⏱️</div>
+            <h3>Coordinated Delivery</h3>
+            <p>All food arrives hot and fresh at the same time, every time</p>
           </div>
 
           <div class="feature-card" data-feature="payments">
             <div class="feature-icon">💳</div>
             <h3>Smart Split Payments</h3>
-            <p>No more awkward bill splitting conversations</p>
+            <p>Seamlessly split bills across multiple restaurants and cuisines</p>
+          </div>
+
+          <div class="feature-card" data-feature="vote">
+            <div class="feature-icon">🗳️</div>
+            <h3>Restaurant Voting</h3>
+            <p>Democratically choose from compatible nearby restaurants</p>
           </div>
 
           <div class="feature-card" data-feature="recurring">
             <div class="feature-icon">🔄</div>
             <h3>Recurring Sessions</h3>
             <p>Automate your weekly team lunches and monthly dinners</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-Restaurant Benefits -->
+    <section class="multi-restaurant-benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Finally, No More "Pizza vs Chinese" Arguments</h2>
+          <p class="section-subtitle">
+            Order from multiple restaurants with perfectly coordinated delivery timing
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🏢</div>
+            <h3>Multiple Restaurants</h3>
+            <p>Order from nearby compatible restaurants within a 50m radius</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>Perfect Timing</h3>
+            <p>Smart coordination ensures all food arrives hot and fresh simultaneously</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🚀</div>
+            <h3>40% Larger Orders</h3>
+            <p>Groups order more when everyone gets exactly what they want</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">💡</div>
+            <h3>Decision Freedom</h3>
+            <p>No more compromising - pizza lovers and sushi fans both get their favorites</p>
+          </div>
+        </div>
+
+        <div class="coordination-showcase">
+          <div class="showcase-content">
+            <div class="showcase-text">
+              <h3>How Coordinated Delivery Works</h3>
+              <div class="coordination-steps">
+                <div class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-text">AI analyzes prep times from nearby restaurants</div>
+                </div>
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-text">Orders are staggered to arrive simultaneously</div>
+                </div>
+                <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-text">Driver picks up in optimal sequence for food quality</div>
+                </div>
+                <div class="step">
+                  <div class="step-number">4</div>
+                  <div class="step-text">All food arrives hot and fresh together</div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-visual">
+              <div class="timing-visualization">
+                <div class="restaurant-timeline">
+                  <div class="timeline-item pizza">
+                    <div class="timeline-restaurant">🍕 Mario's</div>
+                    <div class="timeline-bar">
+                      <div class="prep-time" style="width: 70%"></div>
+                    </div>
+                    <div class="timeline-time">20min</div>
+                  </div>
+                  <div class="timeline-item tacos">
+                    <div class="timeline-restaurant">🌮 Taco Libre</div>
+                    <div class="timeline-bar">
+                      <div class="prep-time" style="width: 60%"></div>
+                    </div>
+                    <div class="timeline-time">15min</div>
+                  </div>
+                  <div class="timeline-item ramen">
+                    <div class="timeline-restaurant">🍜 Ramen Hub</div>
+                    <div class="timeline-bar">
+                      <div class="prep-time" style="width: 85%"></div>
+                    </div>
+                    <div class="timeline-time">25min</div>
+                  </div>
+                </div>
+                <div class="delivery-sync">
+                  <div class="sync-icon">🚗</div>
+                  <div class="sync-text">All arrive at 6:45 PM</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
